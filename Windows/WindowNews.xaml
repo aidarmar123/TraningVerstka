@@ -1,0 +1,101 @@
+﻿<Window x:Class="VerstkaWindows.Windows.WindowNews"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VerstkaWindows.Windows"
+        xmlns:uc="clr-namespace:VerstkaWindows.UserControlls"
+        mc:Ignorable="d"
+        
+        Title="WindowNews" Height="450" Width="800">
+    <Grid Background="#1F1F1F">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal"
+                    Margin="5">
+           
+            <TextBlock Foreground="#81A8E5"
+                       FontSize="24"
+                       Margin="5"
+                       Text="YOUFIND"/>
+            <TextBox Background="#303134"
+                     BorderThickness="0"
+                     Width="350">
+                <TextBox.Style>
+                    <Style>
+                        <Style.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius"
+                                        Value="20"/>
+
+                            </Style>
+                        </Style.Resources>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+            <Button x:Name="BSerch"
+                        BorderThickness="0"
+                     Width="40"
+                    
+ Height="40"
+                    Background="#303134">
+                <Image Source="/Resourse/search.png"
+                       />
+                <Button.Style>
+                    <Style>
+                        <Style.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius"
+                         Value="20"
+                                     />
+
+                            </Style>
+                        </Style.Resources>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+        </StackPanel>
+        <ListView Grid.Row="1"
+                  Background="#1F1F1F">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Background="#303134">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resourse/internet.png"
+           Width="30"/>
+                                <TextBlock Text="{Binding SiteName}"/>
+                            </StackPanel>
+                            <TextBlock Text="{Binding Link}"/>
+                        </StackPanel>
+                        <Button Content="Открыть"
+                                BorderThickness="0"
+                                VerticalAlignment="Bottom"
+                                Background="Transparent"/>
+
+                        <StackPanel Grid.Column="1">
+                            <TextBlock Text="{Binding Title}"/>
+                            <TextBlock Text="{Binding Description}"
+                                       TextWrapping="Wrap"/>
+
+                            <uc:Stars Rating="{Binding countStar}"
+                                      HorizontalAlignment="Right"/>
+                        </StackPanel>
+                        <GridSplitter Grid.Column="0"
+                                      Width="2" 
+                                      Background="#4E4E4E"/>
+
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+      
+    </Grid>
+</Window>

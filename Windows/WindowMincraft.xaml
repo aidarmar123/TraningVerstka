@@ -1,0 +1,101 @@
+﻿<Window x:Class="VerstkaWindows.Windows.WindowMincraft"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VerstkaWindows.Windows"
+        mc:Ignorable="d"
+        Title="WindowMincraft" Height="450" Width="800">
+    <Grid >
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Image Source="/Resourse/background_mincraft.png" />
+        <StackPanel Orientation="Horizontal"
+                    Margin="10">
+            <TextBox Background="#888888"
+                     Width="300"
+                     Margin="5,0"
+                     BorderBrush="Black"
+BorderThickness="2"/>
+            <Button Content="Найти"
+                    Width="130"
+                    Background="#888888"
+                    Foreground="White"
+                    Margin="5,0"
+                    BorderBrush="Black"
+                    BorderThickness="2"/>
+             <Button Content="Крафт"
+                     Width="130"
+                    Background="#888888"
+                    Foreground="White"
+                    Margin="5,0"
+                    BorderBrush="Black"
+                    BorderThickness="2"/>
+            
+        </StackPanel>
+        <Image Source="/Resourse/back_earth.png"
+       Width="1400"
+       Stretch="Fill"
+       
+       Grid.Row="1"/>
+        <ListView Grid.Row="1"
+                  >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Background="#232323"
+                          Opacity="77">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <Image Source="{Binding Disk}"/>
+                            <Grid>
+                                <TextBlock Text="{Binding Artist}"
+                                           HorizontalAlignment="Left"/>
+                                <TextBlock Text="{Binding Name}"
+                                           HorizontalAlignment="Left"/>
+                                
+                            </Grid>
+                        </StackPanel>
+
+
+                        <StackPanel Grid.Column="1">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/Resourse/player.png" />
+                                <Slider/>
+                                <TextBlock Text="{Binding TimeMusic, StringFormat='0:00/{0}'}"/>
+                            </StackPanel>
+                            <Button Background="#888888">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Продать"/>
+                                    <Image Source="/Resourse/emerald.png" />
+
+                                </StackPanel>
+                            </Button>
+                            <Button Background="#888888"
+                                    Content="Сломать"/>
+
+                        </StackPanel>
+                        
+                        
+                        <Image Source="/Resourse/player_box.png" 
+                               Grid.Column="2"/>
+
+                        <GridSplitter Grid.Column="0"
+                           Width="2" 
+                           Background="#4E4E4E"/>
+
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+
+        
+    </Grid>
+</Window>
